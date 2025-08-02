@@ -20,6 +20,8 @@ const AddTodo = ({ todos, setTodos }: AddTodoProps) => {
 			createdAt: new Date(),
 		};
 
+		setValue("");
+
 		if (!storageTodos) {
 			localStorage.setItem("todos", JSON.stringify([todo]));
 			setTodos([todo]);
@@ -28,7 +30,6 @@ const AddTodo = ({ todos, setTodos }: AddTodoProps) => {
 
 		localStorage.setItem("todos", JSON.stringify([...todos, todo]));
 		setTodos((prev) => [...prev, todo]);
-		setValue("");
 	};
 
 	return (
